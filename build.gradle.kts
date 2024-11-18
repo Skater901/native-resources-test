@@ -1,6 +1,6 @@
 plugins {
     kotlin("jvm") version "2.0.20"
-    id("org.graalvm.buildtools.native") version "0.10.2"
+    id("org.graalvm.buildtools.native") version "0.10.3"
 }
 
 group = "au.com.skater901"
@@ -22,7 +22,7 @@ graalvmNative {
     binaries.named("main") {
         mainClass = "au.com.skater901.Main"
 
-//        resources.includedPatterns.add("META-INF/resources/webjars/swagger-ui/5.17.11/swagger-ui.css") <---- works
+//        resources.includedPatterns.add("META-INF/resources/webjars/swagger-ui/5.17.11/swagger-ui.css") // <---- works
         resources.includedPatterns.add("META-INF/resources/webjars/swagger-ui/5.17.11/*") // <----- doesn't work
 
         buildArgs("-H:Log=registerResource:5", "-H:+UnlockExperimentalVMOptions")
